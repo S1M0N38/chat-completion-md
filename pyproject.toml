@@ -1,0 +1,61 @@
+[project]
+name = "chat-completion-md"
+version = "0.0.0"
+description = "Convert OpenAI chat completion request to markdown and vice versa"
+readme = "README.md"
+authors = [{ name = "S1M0N38", email = "bertolottosimone@gmail.com" }]
+requires-python = ">=3.11"
+dependencies = []
+classifiers = [
+  "Development Status :: 1 - Planning",
+  "Framework :: Pytest",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.11",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/S1M0N38/chat-completion-md"
+Issues = "https://github.com/S1M0N38/chat-completion-md/issues"
+Repository = "https://github.com/S1M0N38/chat-completion-md"
+Changelog = "https://github.com/S1M0N38/chat-completion-md/blob/main/CHANGELOG.md"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+publish-url = "https://upload.pypi.org/legacy/"
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+extend-include = ["*.ipynb"]
+lint.task-tags = ["FIX", "TODO", "HACK", "WARN", "PERF", "NOTE", "TEST"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+typeCheckingMode = "basic"
+
+[tool.commitizen]
+tag_format = "v$major.$minor.$patch$prerelease"
+version_files = ["pyproject.toml", "src/chat_completion_md/__init__.py"]
+bump_message = "release: $current_version → $new_version"
+update_changelog_on_bump = true
+annotated_tag = true
+gpg_sign = true
+major_version_zero = false
+version_provider = "pep621"
+
+[tool.pytest.ini_options]
+addopts = "-v"
+testpaths = ["tests"]
+
+[dependency-groups]
+dev = ["pytest>=8.3.4"]
