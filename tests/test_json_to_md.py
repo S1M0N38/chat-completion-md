@@ -26,7 +26,7 @@ class TestJsonToMd:
         json_str = (self.data_path / "not_valid_json.json").read_text()
         with pytest.raises(JSONDecodeError) as e:
             json_to_md(json_str)
-            print(str(e))
+        assert "Expecting property name enclosed in double quotes" in str(e.value)
 
     def test_missing_messages(self):
         json_str = (self.data_path / "missing_messages.json").read_text()
