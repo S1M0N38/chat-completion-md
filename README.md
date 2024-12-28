@@ -72,7 +72,7 @@ This simple library/application supports only a subset of the available paramete
                      <- empty line
 {message content}    <- message body spanning multiple lines
                      <- empty line
----                  <- three dashes or EOF
+---                  <- three dashes
 ```
 
 #### Conversion recipes
