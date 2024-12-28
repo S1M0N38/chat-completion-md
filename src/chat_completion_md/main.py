@@ -27,7 +27,7 @@ def json_to_md(json_str: str) -> str:
     try:
         messages = llm_request_config.pop("messages")
     except KeyError as e:
-        raise KeyError("messages key not found in JSON") from e
+        raise KeyError("Messages key not found in JSON") from e
     try:
         messages = [Message.model_validate(msg) for msg in messages]
     except ValidationError as e:
@@ -44,7 +44,6 @@ def json_to_md(json_str: str) -> str:
         s += f"\n# {message.role}\n"
         s += f"\n{message.content}\n"
         s += "\n---\n"
-
 
     return s
 

@@ -32,7 +32,7 @@ class TestJsonToMd:
         json_str = (self.data_path / "missing_messages.json").read_text()
         with pytest.raises(KeyError) as e:
             json_to_md(json_str)
-            assert "messages key not found in JSON" in str(e)
+        assert "Messages key not found in JSON" in str(e.value)
 
     def test_missing_model(self):
         json_str = (self.data_path / "missing_model.json").read_text()
@@ -47,5 +47,5 @@ class TestJsonToMd:
         with pytest.raises(ValidationError) as exc_info:
             json_to_md(json_str)
         errors = exc_info.value.errors()[0]
-        msg = "Input should be 'system', 'user', 'assistant', 'developer' or 'tool'"
+        msg = "Input should be 'assistant', 'developer', 'system', 'tool' or 'user'"
         assert msg == errors["msg"]
