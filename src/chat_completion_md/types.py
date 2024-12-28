@@ -15,5 +15,5 @@ class LLMRequestConfig(BaseModel):
 
 class Message(BaseModel):
     model_config = ConfigDict(extra="allow")
-    role: Literal["system", "user", "assistant", "developer", "tool"]
     content: str
+    role: Literal["assistant", "developer", "system", "tool", "user"]
