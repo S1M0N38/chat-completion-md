@@ -25,6 +25,9 @@ Issues = "https://github.com/S1M0N38/chat-completion-md/issues"
 Repository = "https://github.com/S1M0N38/chat-completion-md"
 Changelog = "https://github.com/S1M0N38/chat-completion-md/blob/main/CHANGELOG.md"
 
+[project.scripts]
+chat_completion_md = "chat_completion_md.cli:main"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"

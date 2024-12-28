@@ -13,16 +13,16 @@ This lib is so simple that it barely makes sense to create a standalone package 
 
 ### CLI
 
-- Convert requests stored as JSON files to markdown files
+- Print request stored as JSON files to markdown representation to stdout
 
 ```
-chat_completion_md --json pattern/to/*.json
+chat_completion_md path/to/json/file.json
 ```
 
-- Convert markdown files to chat completion requests and save them as JSON
+- Print request stored as markdown files to JSON representation to stdout
 
 ```
-chat_completion_md --md pattern/to/*.md
+chat_completion_md path/to/md/file.md
 ```
 
 ### API
