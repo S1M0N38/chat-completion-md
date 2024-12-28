@@ -86,8 +86,8 @@ def md_to_json(md_str: str) -> str:
 
     roles = ["system", "user", "assistant", "developer", "tool"]
     pattern = (
-        fr"\n# ({'|'.join(roles)})\n\n"
-        fr"(.*?)\n\n---(?=(?:\n\n# (?:{'|'.join(roles)})\n\n|\s*\Z))"
+        rf"\n# ({'|'.join(roles)})\n\n"
+        rf"(.*?)\n\n---(?=(?:\n\n# (?:{'|'.join(roles)})\n\n|\s*\Z))"
     )
 
     messages = [

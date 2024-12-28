@@ -1,6 +1,8 @@
 import json
-import pytest
 from pathlib import Path
+
+import pytest
+
 from chat_completion_md import md_to_json
 
 here = Path(__file__).parent
