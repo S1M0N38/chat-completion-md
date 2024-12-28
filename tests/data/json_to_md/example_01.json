@@ -1,0 +1,10 @@
+{
+  "model": "gpt-3.5-turbo",
+  "max_tokens": 100,
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello, world!"
+    }
+  ]
+}

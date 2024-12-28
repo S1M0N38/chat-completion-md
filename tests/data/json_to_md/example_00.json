@@ -1,0 +1,41 @@
+{
+  "model": "gpt-4o",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful assistant."
+    },
+    {
+      "role": "user",
+      "content": "What can you do?"
+    },
+    {
+      "role": "assistant",
+      "content": "I can do a lot of things."
+    },
+    {
+      "role": "user",
+      "content": "Like what?"
+    },
+    {
+      "role": "assistant",
+      "content": "I can cook."
+    },
+    {
+      "role": "user",
+      "content": "Are you kidding?"
+    },
+    {
+      "role": "assistant",
+      "content": "Yeah."
+    }
+  ],
+  "response_format": {
+    "type": "text"
+  },
+  "temperature": 1,
+  "max_completion_tokens": 2048,
+  "top_p": 1,
+  "frequency_penalty": 0,
+  "presence_penalty": 0
+}
