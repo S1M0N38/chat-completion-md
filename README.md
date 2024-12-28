@@ -1,6 +1,6 @@
 <div align="center">
   <h1>⇋&nbsp;&nbsp;chat-completion-md&nbsp;&nbsp;⌗</h1>
-  <p><em>Convert OpenAI chat completion request to markdown and vice versa </em></p>
+  <p><em>Convert OpenAI chat completion request to markdown and vice versa</em></p>
 </div>
 
 ______________________________________________________________________
@@ -36,3 +36,54 @@ md_str = json_to_md(json_str)
 md_str = ...
 json_str = md_to_json(md_str)
 ```
+
+______________________________________________________________________
+
+### Specification
+
+This simple library/application supports only a subset of the available parameters of the OpenAI chat completion endpoint (arguably the most important ones). Inference engine offering OpenAI compatible API (vLLM, Ollama, TGI, llama.cpp, LMStudio, ...) guarantees supports for a similar subsets of parameters.
+
+#### Supported parameters
+
+> [!NOTE]
+> To guarantee consistency, the parameters are alphabetically sorted in JSON and in the Markdown representation.
+
+- `frequency_penalty: float` - Penalizes new tokens based on their frequency in the text so far.
+- `logit_bias: dict[str, int]` - Modifies the likelihood of specified tokens appearing in the completion.
+- `max_tokens: int` - The maximum number of tokens that can be generated in the chat completion.
+- `messages: list[str]` - List of messages in the ChatML format.
+- `model: str` - ID of the model to use
+- `presence_penalty: float` - Penalizes new tokens based on their presence in the text so far.
+- `stream: bool` - If set, partial message deltas will be sent as they become available.
+- `temperature: float` - Sampling temperature to use, between 0 and 2.
+- `top_p: float` - Nucleus sampling, where the model considers the results of the tokens with top_p probability mass.
+
+> [!IMPORTANT]
+> `model` and `messages` are the only required parameters.
+
+#### Markdown representation
+
+- The Markdown front matter contains the parameters in YAML format except for the `messages`.
+- Message list is unrolled after the front matter where each message has the following format:
+
+```txt
+                     <- empty line
+# {message role}     <- H1 header with message role
+                     <- empty line
+{message content}    <- message body spanning multiple lines
+                     <- empty line
+---                  <- three dashes or EOF
+```
+
+#### Conversion recipes
+
+***JSON to Markdown***
+
+1. Parse JSON string into a dictionary.
+1. Pop the `messages` key from the dictionary.
+1. Convert the dictionary to YAML and add as front matter to the markdown file.
+1. Convert each message to their markdown representation and add sequentially to the markdown file.
+
+***Markdown to JSON***
+
+*WIP ...*
