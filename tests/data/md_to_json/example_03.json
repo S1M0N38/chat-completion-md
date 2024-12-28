@@ -1,0 +1,25 @@
+{
+  "messages": [
+    {
+      "content": "You are a helpful assistant.",
+      "role": "system"
+    },
+    {
+      "content": "What are the roles supported by the OpenAI API?\n",
+      "role": "user"
+    },
+    {
+      "content": "The supported roles are:\n- user\n- assistant\n- system",
+      "role": "assistant"
+    },
+    {
+      "content": "Describe each role",
+      "role": "user"
+    },
+    {
+      "content": "# user\n\nThe messages sent by the user has the `user` role.\n\n# assistant\n\nThe messages sent by LLM has the `assistant` role.\n\n# system\n\nThe `system` message define the behaviour of the LLM.",
+      "role": "assistant"
+    }
+  ],
+  "model": "gpt-4o"
+}

@@ -1,0 +1,21 @@
+{
+  "messages": [
+    {
+      "content": "You are a helpful assistant.",
+      "role": "system"
+    },
+    {
+      "content": "---\ndef hello():\n  print(\"Hello, world!\")\n---\n\nexplain the code",
+      "role": "user"
+    },
+    {
+      "content": "This code defines a function called `hello` that prints \"Hello, world!\" to the console.",
+      "role": "assistant"
+    },
+    {
+      "content": "Thanks!",
+      "role": "user"
+    }
+  ],
+  "model": "gpt-4o"
+}
