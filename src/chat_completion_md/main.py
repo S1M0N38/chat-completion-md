@@ -104,7 +104,3 @@ def md_to_json(md_str: str) -> str:
         sort_keys=True,
     )
     return json_str
-# %%
-
-# %%
-
