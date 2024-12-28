@@ -82,8 +82,11 @@ This simple library/application supports only a subset of the available paramete
 1. Parse JSON string into a dictionary.
 1. Pop the `messages` key from the dictionary.
 1. Convert the dictionary to YAML and add as front matter to the markdown file.
-1. Convert each message to their markdown representation and add sequentially to the markdown file.
+1. Convert each message to its markdown representation and add sequentially to the markdown file.
 
 ***Markdown to JSON***
 
-*WIP ...*
+1. Use regex to extract the front matter and the content after the front matter.
+1. Use YAML to parse the front matter into a dictionary.
+1. Parse the content after the front matter into a list of messages.
+1. Add messages to the dictionary and convert to JSON string.
