@@ -66,7 +66,7 @@ This simple library/application supports only a subset of the available paramete
 - The Markdown front matter contains the parameters in YAML format except for the `messages`.
 - Message list is unrolled after the front matter where each message has the following format:
 
-```txt
+```
                      <- empty line
 # {message role}     <- H1 header with message role
                      <- empty line
