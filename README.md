@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>↕&nbsp;&nbsp;chat-completion-md&nbsp;&nbsp;⌗</h1>
+  <h1>⇋&nbsp;&nbsp;chat-completion-md&nbsp;&nbsp;⌗</h1>
   <p><em>Convert OpenAI chat completion request to markdown and vice versa </em></p>
 </div>
 
@@ -16,13 +16,13 @@ This lib is so simple that it barely makes sense to create a standalone package 
 - Convert requests stored as JSON files to markdown files
 
 ```
-chat_completion_md --json ./examples/*.json
+chat_completion_md --json pattern/to/*.json
 ```
 
 - Convert markdown files to chat completion requests and save them as JSON
 
 ```
-chat_completion_md --md ./examples/*.md
+chat_completion_md --md pattern/to/*.md
 ```
 
 ### API
