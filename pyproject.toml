@@ -1,6 +1,6 @@
 [project]
 name = "chat-completion-md"
-version = "0.0.0"
+version = "0.1.0"
 description = "Convert OpenAI chat completion request to markdown and vice versa"
 readme = "README.md"
 authors = [{ name = "S1M0N38", email = "bertolottosimone@gmail.com" }]
