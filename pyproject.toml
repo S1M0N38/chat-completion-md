@@ -5,7 +5,10 @@ description = "Convert OpenAI chat completion request to markdown and vice versa
 readme = "README.md"
 authors = [{ name = "S1M0N38", email = "bertolottosimone@gmail.com" }]
 requires-python = ">=3.11"
-dependencies = []
+dependencies = [
+    "pydantic>=2.10.4",
+    "pyyaml>=6.0.2",
+]
 classifiers = [
   "Development Status :: 1 - Planning",
   "Framework :: Pytest",
@@ -54,7 +57,6 @@ major_version_zero = false
 version_provider = "pep621"
 
 [tool.pytest.ini_options]
-addopts = "-v"
 testpaths = ["tests"]
 
 [dependency-groups]
