@@ -1,4 +1,5 @@
 import json
+import re
 
 import yaml
 from pydantic import ValidationError
@@ -48,4 +49,62 @@ def json_to_md(json_str: str) -> str:
     return s
 
 
-def md_to_json(md_str: str) -> str: ...
+def md_to_json(md_str: str) -> str:
+    """Convert Markdown to JSON.
+
+    Convert a Markdown string (formatted according to the defined
+    specification) to a JSON string for performing a request to OpenAI's chat
+    completion API.
+
+    Args:
+        md_str (str): Markdown string.
+
+    Returns:
+        str : JSON string.
+
+    Raises:
+        ValueError: If the Markdown string is not properly formatted or
+            messages are missing.
+        KeyError: If the required keys are not found in the front matter.
+    """
+    pattern = r"\A---\n(.*?)\n---\n(.*)"
+    match = re.search(pattern, md_str, re.DOTALL)
+    if match is None:
+        raise ValueError("Cannot parse Markdown string")
+
+    yaml_str = match.group(1)
+    if not yaml_str:
+        raise ValueError("Front matter is empty")
+    llm_request_config = yaml.safe_load(yaml_str)
+
+    if "model" not in llm_request_config:
+        raise KeyError("Model key not found in front matter")
+
+    msgs_str = match.group(2)
+    if not msgs_str:
+        raise ValueError("Content after front matter is empty")
+
+    roles = ["system", "user", "assistant", "developer", "tool"]
+    pattern = (
+        fr"\n# ({'|'.join(roles)})\n\n"
+        fr"(.*?)\n\n---(?=(?:\n\n# (?:{'|'.join(roles)})\n\n|\s*\Z))"
+    )
+
+    messages = [
+        {"role": match.group(1), "content": match.group(2)}
+        for match in re.finditer(pattern, msgs_str, re.DOTALL)
+    ]
+
+    if not messages:
+        raise ValueError("No messages found")
+
+    json_str = json.dumps(
+        {**llm_request_config, "messages": messages},
+        indent=2,
+        sort_keys=True,
+    )
+    return json_str
+# %%
+
+# %%
+
