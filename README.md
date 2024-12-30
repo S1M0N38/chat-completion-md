@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>⇋&nbsp;&nbsp;chat-completion-md&nbsp;&nbsp;⌗</h1>
+  <h1>chat completion&nbsp;&nbsp;⇋&nbsp;&nbsp;markdown</h1>
   <p><em>Convert OpenAI chat completion request to markdown and vice versa</em></p>
 </div>
 
