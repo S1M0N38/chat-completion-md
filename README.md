@@ -1,5 +1,6 @@
 <div align="center">
   <h1>chat completion&nbsp;&nbsp;⇋&nbsp;&nbsp;markdown</h1>
+  <div><img src="https://github.com/user-attachments/assets/9807fd8e-5e1e-4b35-a1f1-8b43b0090fe6" alt="Screenshot: chat completion vs markdown"></div>
   <p><em>Convert OpenAI chat completion request to markdown and vice versa</em></p>
 </div>
 
